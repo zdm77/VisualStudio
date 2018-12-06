@@ -25,3 +25,5 @@ G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\fr\Npgsql.resources.dll
 G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\ja\Npgsql.resources.dll
 G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\zh-CN\Npgsql.resources.dll
 G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\policy.2.0.Npgsql.config
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\FormNewTest.g.cs
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\FormNewTest.baml

@@ -53,8 +53,11 @@ namespace WpfApp1
 
         private void UpdateDB()
         {
-            SqlCommandBuilder comandbuilder = new SqlCommandBuilder(adapter);
-            adapter.Update(phonesTable);
+            // SqlCommandBuilder comandbuilder = new SqlCommandBuilder(adapter);
+            //adapter.Update(phonesTable);
+            FormNewTest fnt = new FormNewTest();
+            fnt.ShowDialog();
+            MessageBox.Show(fnt.newName.Text);
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)

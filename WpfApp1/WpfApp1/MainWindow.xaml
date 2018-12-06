@@ -16,20 +16,22 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" x:Name="phonesGrid">
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="updateButton1" Content="Обновить" Click="updateButton_Click" />
+            <Button x:Name="deleteButton2" Content="Удалить" Click="deleteButton_Click" />
+        </StackPanel>
+        <DataGrid AutoGenerateColumns="False" x:Name="phonesGrid" Grid.Row="1" AlternationCount="1" AlternatingRowBackground="#FFD61A1A" SelectionUnit="Cell" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Title}" Header="Модель" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Модель" Width="Auto" IsReadOnly="True" Foreground="Black"/>
                 <DataGridTextColumn Binding="{Binding Company}" Header="Производитель" Width="125"/>
                 <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="80"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
-            <Button x:Name="updateButton" Content="Обновить" Click="updateButton_Click" />
-            <Button x:Name="deleteButton" Content="Удалить" Click="deleteButton_Click" />
-        </StackPanel>
+
     </Grid>
 </Window>
