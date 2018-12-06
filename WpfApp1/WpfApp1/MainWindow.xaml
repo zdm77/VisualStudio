@@ -5,10 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    
-    <Grid>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="156,123,0,0" VerticalAlignment="Top"/>
+        Title="MainWindow" Height="350" Width="525"  Loaded="Window_Loaded">
 
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="20 8 20 8" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" x:Name="phonesGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Модель" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Company}" Header="Производитель" Width="125"/>
+                <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="updateButton" Content="Обновить" Click="updateButton_Click" />
+            <Button x:Name="deleteButton" Content="Удалить" Click="deleteButton_Click" />
+        </StackPanel>
     </Grid>
 </Window>

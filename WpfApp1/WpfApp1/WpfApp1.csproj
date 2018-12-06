@@ -34,7 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mono.Security">
+      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="policy.2.0.Npgsql">
+      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\policy.2.0.Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
