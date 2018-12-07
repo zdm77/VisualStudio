@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 using Npgsql;
+using System.Collections.Generic;
+
 namespace WpfApp1
 {
     /// <summary>
@@ -13,8 +15,8 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         string connectionString;
-        SqlDataAdapter adapter;
-        DataTable phonesTable;
+       
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -23,10 +25,11 @@ namespace WpfApp1
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           
-            string sql = "SELECT * FROM \"Phones\"";
-            phonesTable = new DataTable();
-          //  IDbConnection conn = null;
+
+            // string sql = "SELECT * FROM продукция.продукция";
+            string sql = "SELECT * FROM продукция.продукция";
+
+            //  IDbConnection conn = null;
             try
             {              
                 NpgsqlConnection conn = new NpgsqlConnection(connectionString);              
@@ -41,8 +44,20 @@ namespace WpfApp1
             //    parameter.Direction = ParameterDirection.Output;
 
                 conn.Open();
-                NpgsqlDataReader dr = comm.ExecuteReader();               
-                phonesGrid.ItemsSource = dr;
+                NpgsqlDataReader dr = comm.ExecuteReader();
+                List<MyPhone> ph = new List<MyPhone>();
+                while (dr.Read())
+                {
+                    try
+                    {
+                        ph.Add(new MyPhone(dr.GetString(0), dr.GetString(1)));
+                       // string result = reader.GetString(1);//Получаем значение из второго столбца! Первый это (0)!
+                    }
+                    catch { }
+
+                }
+                phonesGrid.ItemsSource = ph;
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -50,11 +65,16 @@ namespace WpfApp1
             }
          
         }
-
-        private void UpdateDB()
+        private void ShowSel(object sender, RoutedEventArgs e)
         {
-            // SqlCommandBuilder comandbuilder = new SqlCommandBuilder(adapter);
-            //adapter.Update(phonesTable);
+            MyPhone path = phonesGrid.SelectedItem as MyPhone;
+            MessageBox.Show("");
+        }
+        private void UpdateDB(object sender, RoutedEventArgs e)
+        {
+           // var row_list = (Item)dg.SelectedItem;
+
+       //     MessageBox.Show(phonesGrid.SelectedItem.ToString());
             FormNewTest fnt = new FormNewTest();
             fnt.ShowDialog();
             MessageBox.Show(fnt.newName.Text);
@@ -62,7 +82,7 @@ namespace WpfApp1
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            UpdateDB();
+            UpdateDB(sender, e);
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
@@ -79,7 +99,7 @@ namespace WpfApp1
                     }
                 }
             }
-            UpdateDB();
+            UpdateDB(sender, e);
         }
     }
 }
