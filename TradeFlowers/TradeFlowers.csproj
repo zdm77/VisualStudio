@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E5270962-1FC0-4705-9519-1B9E666D75AC}</ProjectGuid>
+    <ProjectGuid>{8A595000-E330-4C60-940D-4929F5EE00EA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WpfApp1</RootNamespace>
-    <AssemblyName>WpfApp1</AssemblyName>
+    <RootNamespace>TradeFlowers</RootNamespace>
+    <AssemblyName>TradeFlowers</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,20 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mono.Security">
-      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\Mono.Security.dll</HintPath>
+    <Reference Include="AvalonDock">
+      <HintPath>Libs\AvalonDock.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql">
-      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql.dll</HintPath>
-    </Reference>
-    <Reference Include="policy.2.0.Npgsql">
-      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\policy.2.0.Npgsql.dll</HintPath>
-    </Reference>
-    <Reference Include="StandartButton">
-      <HintPath>..\..\..\MyControlsCSharp\StandartButton\StandartButton\bin\Release\StandartButton.dll</HintPath>
+    <Reference Include="AvalonDock.Themes">
+      <HintPath>Libs\AvalonDock.Themes.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,22 +60,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MyWindow.xaml.cs">
-      <DependentUpon>MyWindow.xaml</DependentUpon>
+    <Compile Include="View\Product.xaml.cs">
+      <DependentUpon>Product.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Template\Controls\StandartButton.xaml.cs">
-      <DependentUpon>StandartButton.xaml</DependentUpon>
+    <Compile Include="View\StandartForm.xaml.cs">
+      <DependentUpon>StandartForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Template\Style.xaml.cs">
-      <DependentUpon>Style.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="WindowChild.xaml.cs">
-      <DependentUpon>WindowChild.xaml</DependentUpon>
-    </Compile>
-    <Page Include="FormNewTest.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,32 +74,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="FormNewTest.xaml.cs">
-      <DependentUpon>FormNewTest.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MyWindow.xaml">
+    <Page Include="View\Product.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Template\Controls\StandartButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Template\Style.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="WindowChild.xaml">
+    <Page Include="View\StandartForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\MyPhone.cs" />
+    <Compile Include="Model\Dictonary\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -141,6 +113,37 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App.ico" />
+    <Resource Include="Copy.png" />
+    <Resource Include="Cut.png" />
+    <Resource Include="Delete.png" />
+    <Resource Include="Open.png" />
+    <Resource Include="Paste.png" />
+    <Resource Include="Redo.png" />
+    <Resource Include="Save.png" />
+    <Resource Include="Undo.png" />
+    <Resource Include="WordWrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\App.ico" />
+    <Resource Include="View\Copy.png" />
+    <Resource Include="View\Cut.png" />
+    <Resource Include="View\Delete.png" />
+    <Resource Include="View\icon.png" />
+    <Resource Include="View\Open.png" />
+    <Resource Include="View\Paste.png" />
+    <Resource Include="View\Redo.png" />
+    <Resource Include="View\Save.png" />
+    <Resource Include="View\Undo.png" />
+    <Resource Include="View\WordWrap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

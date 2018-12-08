@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="FormNewTest" Height="110" Width="340">
-    <Window.Resources>
+    <!--<Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="20 8 20 8" />
             <Setter Property="Width" Value="100" />
@@ -18,7 +18,7 @@
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="5,2" />
         </Style>
-    </Window.Resources>
+    </Window.Resources>-->
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>

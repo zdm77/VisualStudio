@@ -4,15 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+     
         mc:Ignorable="d"
-        Title="MainWindow"  Loaded="Window_Loaded" WindowState="Maximized">
+        Title="MainWindow"  Loaded="Window_Loaded" WindowState="Maximized"
+        
+        >
 
-    <Window.Resources>
+    <!--<Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="20 8 20 8" />
             <Setter Property="Width" Value="100" />
             <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="Red"/>
         </Style>
+    </Window.Resources>-->
+    <Window.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Template/Style.xaml"/>
+                <!--<ResourceDictionary Source="Template/Controls/StandartButton.xaml"/>-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -21,13 +34,15 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center"  Grid.Row="0" Orientation="Horizontal">
-            <Button x:Name="updateButton1" Content="Обновить" Click="updateButton_Click" />
-            <Button x:Name="deleteButton2" Content="Удалить" Click="deleteButton_Click" />
+            <Button x:Name="updateButton1" Content="Обновить" Click="updateButton_Click" Style="{StaticResource StyleForTextBlock}" >
+            </Button>
+            <!--<Button Template="{StaticResource ButtonTemplate}" x:Name="deleteButton2" Content="Форма хром как шаблон" Click="deleteButton_Click"/>-->
+         
         </StackPanel>
         <DataGrid MouseDoubleClick="ShowSel" AutoGenerateColumns="False" x:Name="phonesGrid" Grid.Row="1" AlternationCount="1" AlternatingRowBackground="LightBlue" SelectionUnit="FullRow" >
             <DataGrid.Columns>
-                <DataGridTextColumn  Binding="{Binding Title}" Header="Модель" Width="Auto" IsReadOnly="True" Foreground="Black"/>
-                <DataGridTextColumn Binding="{Binding Company}" Header="Производитель" Width="125"/>
+                <DataGridTextColumn  Binding="{Binding Id}" Header="Модель" Width="Auto" IsReadOnly="True" Foreground="Black"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Производитель" Width="125"/>
                 <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="80"/>
             </DataGrid.Columns>
         </DataGrid>

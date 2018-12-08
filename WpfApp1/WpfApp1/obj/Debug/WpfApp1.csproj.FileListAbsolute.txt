@@ -27,3 +27,12 @@ G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\zh-CN\Npgsql.resources.dll
 G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\policy.2.0.Npgsql.config
 G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\FormNewTest.g.cs
 G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\FormNewTest.baml
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\Template\Style.baml
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\MyWindow.g.cs
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\WindowChild.g.cs
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\MyWindow.baml
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\WindowChild.baml
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\Template\Controls\StandartButton.g.cs
+G:\Project\VisualStudio\WpfApp1\WpfApp1\obj\Debug\Template\Controls\StandartButton.baml
+G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\StandartButton.dll
+G:\Project\VisualStudio\WpfApp1\WpfApp1\bin\Debug\StandartButton.pdb

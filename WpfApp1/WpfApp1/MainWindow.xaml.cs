@@ -27,7 +27,7 @@ namespace WpfApp1
         {
 
             // string sql = "SELECT * FROM продукция.продукция";
-            string sql = "SELECT * FROM продукция.продукция";
+            string sql = "SELECT id, name FROM продукция.продукция order by id ";
 
             //  IDbConnection conn = null;
             try
@@ -50,7 +50,7 @@ namespace WpfApp1
                 {
                     try
                     {
-                        ph.Add(new MyPhone(dr.GetString(0), dr.GetString(1)));
+                        ph.Add(new MyPhone(dr.GetValue(0).ToString(), dr.GetValue(1).ToString()));
                        // string result = reader.GetString(1);//Получаем значение из второго столбца! Первый это (0)!
                     }
                     catch { }
@@ -87,19 +87,22 @@ namespace WpfApp1
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (phonesGrid.SelectedItems != null)
-            {
-                for (int i = 0; i < phonesGrid.SelectedItems.Count; i++)
-                {
-                    DataRowView datarowView = phonesGrid.SelectedItems[i] as DataRowView;
-                    if (datarowView != null)
-                    {
-                        DataRow dataRow = (DataRow)datarowView.Row;
-                        dataRow.Delete();
-                    }
-                }
-            }
-            UpdateDB(sender, e);
+            //    if (phonesGrid.SelectedItems != null)
+            //    {
+            //        for (int i = 0; i < phonesGrid.SelectedItems.Count; i++)
+            //        {
+            //            DataRowView datarowView = phonesGrid.SelectedItems[i] as DataRowView;
+            //            if (datarowView != null)
+            //            {
+            //                DataRow dataRow = (DataRow)datarowView.Row;
+            //                dataRow.Delete();
+            //            }
+            //        }
+            //    }
+            //    UpdateDB(sender, e);
+            
+          //  SmaleWindow sm = new SmaleWindow();
+           // sm.Show();
         }
     }
 }
