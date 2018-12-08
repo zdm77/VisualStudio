@@ -114,36 +114,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="icon.png" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="App.ico" />
-    <Resource Include="Copy.png" />
-    <Resource Include="Cut.png" />
-    <Resource Include="Delete.png" />
-    <Resource Include="Open.png" />
-    <Resource Include="Paste.png" />
-    <Resource Include="Redo.png" />
-    <Resource Include="Save.png" />
-    <Resource Include="Undo.png" />
-    <Resource Include="WordWrap.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\App.ico" />
-    <Resource Include="View\Copy.png" />
-    <Resource Include="View\Cut.png" />
-    <Resource Include="View\Delete.png" />
-    <Resource Include="View\icon.png" />
-    <Resource Include="View\Open.png" />
-    <Resource Include="View\Paste.png" />
-    <Resource Include="View\Redo.png" />
-    <Resource Include="View\Save.png" />
-    <Resource Include="View\Undo.png" />
-    <Resource Include="View\WordWrap.png" />
+    <Resource Include="Images\App.ico" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\Cut.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\icon.png" />
+    <Resource Include="Images\Open.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\Save.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\WordWrap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
