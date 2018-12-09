@@ -40,7 +40,14 @@
     <Reference Include="AvalonDock.Themes">
       <HintPath>Libs\AvalonDock.Themes.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>D:\_SOFT\Программирование\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql2.0.11.91-bin-ms.net3.5sp1\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,8 +67,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\Product.xaml.cs">
-      <DependentUpon>Product.xaml</DependentUpon>
+    <Compile Include="View\ProductView.xaml.cs">
+      <DependentUpon>ProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StandartForm.xaml.cs">
       <DependentUpon>StandartForm.xaml</DependentUpon>
@@ -78,7 +85,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Product.xaml">
+    <Page Include="View\ProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,7 +95,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Dictonary\Product.cs" />
+    <Compile Include="Model\Dictonary\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
