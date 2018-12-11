@@ -1,10 +1,6 @@
 ﻿using FirstFloor.ModernUI.Presentation;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace TradeFlowers.Pages.Settings
@@ -28,7 +24,7 @@ namespace TradeFlowers.Pages.Settings
             Color.FromRgb(0xff, 0x45, 0x00),   // orange red
             Color.FromRgb(0xe5, 0x14, 0x00),   // red
             Color.FromRgb(0xff, 0x00, 0x97),   // magenta
-            Color.FromRgb(0xa2, 0x00, 0xff),   // purple            
+            Color.FromRgb(0xa2, 0x00, 0xff),   // purple
         };*/
 
         // 20 accent colors from Windows Phone 8

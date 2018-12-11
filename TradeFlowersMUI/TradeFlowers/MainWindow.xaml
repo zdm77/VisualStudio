@@ -3,14 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         Title="mui" IsTitleVisible="True"
-       
+
         ContentSource="/Pages/Home.xaml" WindowState="Maximized">
-   
+
     <mui:ModernWindow.MenuLinkGroups>
         <!--<mui:LinkGroup DisplayName="Домашняя страница">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="Домашняя страница" Source="/Pages/Home.xaml" />
-                
             </mui:LinkGroup.Links>
         </mui:LinkGroup>-->
         <mui:LinkGroup DisplayName="Справочники">
@@ -18,9 +17,6 @@
                 <mui:Link DisplayName="" Source="/Pages/Dictonary/DictonaryView.xaml" />
                 <mui:Link DisplayName="Номенклатура" Source="/Pages/Dictonary/ProductView.xaml" />
                 <mui:Link DisplayName="Поставщики" Source="/Pages/Dictonary/1.xaml" />
-
-
-
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="Документы">
@@ -28,9 +24,6 @@
                 <mui:Link DisplayName="" Source="/Pages/Dictonary/DictonaryView.xaml" />
                 <mui:Link DisplayName="Приходные накладные" Source="/Pages/Dictonary/ProductView.xaml" />
                 <mui:Link DisplayName="Расходные накладные" Source="/Pages/Dictonary/1.xaml" />
-
-
-
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="settings" GroupKey="settings">
@@ -39,9 +32,9 @@
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
-    
+
     <mui:ModernWindow.TitleLinks>
-      
+
         <mui:Link DisplayName="Настройки" Source="/Pages/SettingsPage.xaml" />
         <mui:Link DisplayName="Помощь" Source="https://github.com/firstfloorsoftware/mui" />
     </mui:ModernWindow.TitleLinks>

@@ -2,10 +2,10 @@
 {
     internal class CategoryModel
     {
-            private int _id;
-          private string _name;
-           private int _pid;
-           private int _orderBY;
+        private int _id;
+        private string _name;
+        private int _pid;
+        private int _orderBY;
 
         //    public CategoryModel(int id, int pid, string name, int orderBY)
         //    {
@@ -19,11 +19,10 @@
         //    public string Name { get => _name; set => _name = value; }
         //    public int Pid { get => _pid; set => _pid = value; }
         //    public int OrderBY { get => _orderBY; set => _orderBY = value; }
-        public int Id { get=>_id; set=>_id=value; }
+        public int Id { get => _id; set => _id = value; }
 
         public int PId { get; set; }
 
         public string Name { get; set; }
-
     }
 }

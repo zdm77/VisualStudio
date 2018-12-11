@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using TradeFlowers.Model;
 using TradeFlowers.Model.Dictonary;
+using TradeFlowers.Pages.Dictonary.Product;
 
 namespace TradeFlowers.Pages.Dictonary
 {
@@ -21,9 +22,12 @@ namespace TradeFlowers.Pages.Dictonary
         private NpgsqlCommand comm;
         private NpgsqlConnection conn;
         private List<ProductModel> productList = new List<ProductModel>();
+
         //цвета ячеек
         private SolidColorBrush hb = new SolidColorBrush(Colors.Orange);
+
         private SolidColorBrush nb = new SolidColorBrush(Colors.White);
+
         public ProductView()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace TradeFlowers.Pages.Dictonary
             ShowCategory();
             ShowProducts(0);
         }
+
         private void categoryGrid_MouseEnter(object sender, MouseEventArgs e)
         {
             // CategoryModel c = (tree.SelectedItem as CategoryModel);
@@ -70,11 +75,9 @@ namespace TradeFlowers.Pages.Dictonary
                 try
                 {
                     categoryList.Add(new CategoryModel { PId = (int)dr["pid_category"], Name = dr["name_category"].ToString(), Id = (int)dr["id_category"] });
-
                 }
                 catch { }
             }
-
 
             var root = Node.CreateTree(categoryList);
             tree.ItemsSource = new[] { root };
@@ -85,6 +88,7 @@ namespace TradeFlowers.Pages.Dictonary
             //    MessageBox.Show(ex.Message);
             //}
         }
+
         //private void ShowCategory()
         //{
         //    string sql = "SELECT id_category, pid_category, name_category, order_category FROM продукция.категории order by order_category";
@@ -115,7 +119,6 @@ namespace TradeFlowers.Pages.Dictonary
         //загружаем номенклатуру
         private void ShowProducts(int categoryID)
         {
-
             productsGrid.ItemsSource = null;
             productList.Clear();
             StringBuilder sql = new StringBuilder("SELECT id, name FROM продукция.продукция where 1=1 ");
@@ -150,11 +153,9 @@ namespace TradeFlowers.Pages.Dictonary
             }
         }
 
-
-
         private void edtCategory_Click(object sender, RoutedEventArgs e)
         {
-            EditProduct edtp = new EditProduct();
+            ProductEdit edtp = new ProductEdit();
             edtp.ShowDialog();
         }
 
@@ -166,7 +167,7 @@ namespace TradeFlowers.Pages.Dictonary
             //    e.Row.Background = hb;
             //else
             //    e.Row.Background = nb;
-           // e.Row.Background = product.Id > 50 ? hb : nb;
+            // e.Row.Background = product.Id > 50 ? hb : nb;
         }
     }
 }
