@@ -68,6 +68,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Pages\Dictonary\Product\CategoryEdit.xaml.cs">
+      <DependentUpon>CategoryEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Dictonary\Product\ProductEdit.xaml.cs">
       <DependentUpon>ProductEdit.xaml</DependentUpon>
     </Compile>
@@ -88,11 +91,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Dictonary\EditProduct.xaml">
+    <Page Include="Pages\Dictonary\ProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Dictonary\ProductView.xaml">
+    <Page Include="Pages\Dictonary\Product\CategoryEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,9 +115,6 @@
     </Compile>
     <Compile Include="Pages\Dictonary\DictonaryView.xaml.cs">
       <DependentUpon>DictonaryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Dictonary\EditProduct.xaml.cs">
-      <DependentUpon>EditProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Dictonary\ProductView.xaml.cs">
       <DependentUpon>ProductView.xaml</DependentUpon>

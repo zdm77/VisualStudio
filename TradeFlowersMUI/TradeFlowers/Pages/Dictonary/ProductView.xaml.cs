@@ -22,7 +22,7 @@ namespace TradeFlowers.Pages.Dictonary
         private NpgsqlCommand comm;
         private NpgsqlConnection conn;
         private List<ProductModel> productList = new List<ProductModel>();
-
+        private CategoryModel category;
         //цвета ячеек
         private SolidColorBrush hb = new SolidColorBrush(Colors.Orange);
 
@@ -153,10 +153,21 @@ namespace TradeFlowers.Pages.Dictonary
             }
         }
 
+        //Добавить катеогрию
+
+        private void addCategory_Click(object sender, RoutedEventArgs e)
+        {
+           // ProductEdit edtp = new ProductEdit();
+           // edtp.ShowDialog();
+        }
+        //редактировать категорию
         private void edtCategory_Click(object sender, RoutedEventArgs e)
         {
-            ProductEdit edtp = new ProductEdit();
-            edtp.ShowDialog();
+            category = new CategoryModel((tree.SelectedItem as Node).Id, (tree.SelectedItem as Node).Name);
+            CategoryEdit edt = new CategoryEdit(category);
+            edt.ShowDialog();
+           // ProductEdit edtp = new ProductEdit();
+            //edtp.ShowDialog();
         }
 
         //метод раскраски по условию
