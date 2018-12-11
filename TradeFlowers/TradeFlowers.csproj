@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Dictonary\CategoryModel.cs" />
+    <Compile Include="Model\Node.cs" />
     <Compile Include="View\Dictonary\CategoryView.xaml.cs">
       <DependentUpon>CategoryView.xaml</DependentUpon>
     </Compile>

@@ -9,6 +9,7 @@ namespace TradeFlowers.Model
 {
     class Node
     {
+       // private int _pid;
         public Node(string name, int id)
         {
             Id = id;
@@ -22,6 +23,8 @@ namespace TradeFlowers.Model
         public List<Node> Children { get; set; }
 
         public int Id { get; set; }
+
+       // public int PId { get; set; }
 
         // public List<Record> Records = new List<Record>();
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using TradeFlowers.Model;
 using TradeFlowers.Model.Dictonary;
 
@@ -20,9 +21,11 @@ namespace TradeFlowers.Pages.Dictonary
         private NpgsqlCommand comm;
         private NpgsqlConnection conn;
         private List<ProductModel> productList = new List<ProductModel>();
-
+        //цвета ячеек
+        private SolidColorBrush hb = new SolidColorBrush(Colors.Orange);
+        private SolidColorBrush nb = new SolidColorBrush(Colors.White);
         public ProductView()
-        {             
+        {
             InitializeComponent();
             conn = new NpgsqlConnection(MainWindow.ConnectionString);
             conn.Open();
@@ -32,14 +35,16 @@ namespace TradeFlowers.Pages.Dictonary
         }
         private void categoryGrid_MouseEnter(object sender, MouseEventArgs e)
         {
-           // CategoryModel c = (tree.SelectedItem as CategoryModel);
+            // CategoryModel c = (tree.SelectedItem as CategoryModel);
             // c.PId ==0 ? ShowProducts(c.Id) : ShowProducts(0);
-           
-           // if ((tree.SelectedItem as CategoryModel).PId !=0)  {
-                ShowProducts((tree.SelectedItem as CategoryModel).Id);
-            //}   else {
-            //    ShowProducts(0);
-            //}
+            if ((tree.SelectedItem as Node).Name != "Все")
+            {
+                ShowProducts((tree.SelectedItem as Node).Id);
+            }
+            else
+            {
+                ShowProducts(0);
+            }
         }
 
         private void SearchAll_KeyUp(object sender, KeyEventArgs e)
@@ -55,25 +60,25 @@ namespace TradeFlowers.Pages.Dictonary
         private void ShowCategory()
         {
             string sql = "SELECT id_category, pid_category, name_category, order_category FROM продукция.категории order by order_category";
-                comm = new NpgsqlCommand(sql, conn);
+            comm = new NpgsqlCommand(sql, conn);
             //try
             //{
-                NpgsqlDataReader dr = comm.ExecuteReader();
+            NpgsqlDataReader dr = comm.ExecuteReader();
 
-                while (dr.Read())
+            while (dr.Read())
+            {
+                try
                 {
-                    try
-                    {
-                        categoryList.Add(new CategoryModel { PId = (int)dr["pid_category"], Name = dr["name_category"].ToString(), Id = (int)dr["id_category"] });
+                    categoryList.Add(new CategoryModel { PId = (int)dr["pid_category"], Name = dr["name_category"].ToString(), Id = (int)dr["id_category"] });
 
-                    }
-                    catch { }
                 }
+                catch { }
+            }
 
 
-                var root = Node.CreateTree(categoryList);
-                tree.ItemsSource = new[] { root };
-                conn.Close();
+            var root = Node.CreateTree(categoryList);
+            tree.ItemsSource = new[] { root };
+            conn.Close();
             //}
             //catch (Exception ex)
             //{
@@ -110,10 +115,11 @@ namespace TradeFlowers.Pages.Dictonary
         //загружаем номенклатуру
         private void ShowProducts(int categoryID)
         {
+
             productsGrid.ItemsSource = null;
             productList.Clear();
             StringBuilder sql = new StringBuilder("SELECT id, name FROM продукция.продукция where 1=1 ");
-            sql.Append(categoryID != 0 ?  " AND pid=" + categoryID.ToString() : "");
+            sql.Append(categoryID != 0 ? " AND pid=" + categoryID.ToString() : "");
             sql.Append(" order by id");
             //  IDbConnection conn = null;
             try
@@ -135,6 +141,7 @@ namespace TradeFlowers.Pages.Dictonary
                     catch { }
                 }
                 productsGrid.ItemsSource = productList;
+
                 conn.Close();
             }
             catch (Exception ex)
@@ -143,12 +150,23 @@ namespace TradeFlowers.Pages.Dictonary
             }
         }
 
-   
+
 
         private void edtCategory_Click(object sender, RoutedEventArgs e)
         {
             EditProduct edtp = new EditProduct();
             edtp.ShowDialog();
+        }
+
+        //метод раскраски по условию
+        private void productsGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            //ProductModel product = (ProductModel)e.Row.DataContext;
+            //if (product.Id > 50)
+            //    e.Row.Background = hb;
+            //else
+            //    e.Row.Background = nb;
+           // e.Row.Background = product.Id > 50 ? hb : nb;
         }
     }
 }

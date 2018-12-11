@@ -4,9 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:src="clr-namespace:TradeFlowers.Model"
-             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+               xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:TradeFlowers.Utils"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+
+        <local:ValueConverter x:Key="myValueConverter" />
+    </UserControl.Resources>
     <Grid>
 
         <Grid.RowDefinitions>
@@ -104,9 +109,22 @@
             <TextBlock Text="Поиск:" Grid.Column="1" Grid.Row="1" />
             <TextBox KeyUp="SearchAll_KeyUp"   Name="SearchAll" MinWidth="255" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" />
         </ToolBar>
-        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" x:Name="productsGrid" Grid.Row="2" Grid.Column="2" >
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" x:Name="productsGrid" Grid.Row="2" Grid.Column="2" LoadingRow="productsGrid_LoadingRow" >
             <DataGrid.Columns>
-                <DataGridTextColumn  Binding="{Binding Id}" Header="Id" Width="Auto" IsReadOnly="True" Foreground="Black" />
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id" Width="Auto" IsReadOnly="True" Foreground="Black">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="{Binding Id, Converter={StaticResource myValueConverter}}"/>
+                          
+                                <!--<Style.Triggers>
+                                <Trigger Property="Text" Value = "1">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </Trigger>
+                                </Style.Triggers>-->
+                          
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Наименование" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
