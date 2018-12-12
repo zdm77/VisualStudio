@@ -145,6 +145,10 @@
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Style\MainStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -161,6 +165,9 @@
     <Content Include="Images\Save.png" />
     <Content Include="Images\Undo.png" />
     <Content Include="Images\WordWrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

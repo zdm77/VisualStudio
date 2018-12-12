@@ -18,11 +18,11 @@ namespace TradeFlowers.Pages.Dictonary
     /// </summary>
     public partial class ProductView : UserControl
     {
-        private List<CategoryModel> categoryList = new List<CategoryModel>();
+        private List<Node> categoryList = new List<Node>();
         private NpgsqlCommand comm;
         private NpgsqlConnection conn;
         private List<ProductModel> productList = new List<ProductModel>();
-        private CategoryModel category;
+        //private CategoryModel category;
         //цвета ячеек
         private SolidColorBrush hb = new SolidColorBrush(Colors.Orange);
 
@@ -74,7 +74,7 @@ namespace TradeFlowers.Pages.Dictonary
             {
                 try
                 {
-                    categoryList.Add(new CategoryModel { PId = (int)dr["pid_category"], Name = dr["name_category"].ToString(), Id = (int)dr["id_category"] });
+                    categoryList.Add(new Node (dr["name_category"].ToString(),(int)dr["pid_category"],  (int)dr["id_category"] ));
                 }
                 catch { }
             }
@@ -157,15 +157,17 @@ namespace TradeFlowers.Pages.Dictonary
 
         private void addCategory_Click(object sender, RoutedEventArgs e)
         {
-           // ProductEdit edtp = new ProductEdit();
-           // edtp.ShowDialog();
+            CategoryEdit edt = new CategoryEdit(new CategoryModel());
+            edt.ShowDialog();
+            // ProductEdit edtp = new ProductEdit();
+            // edtp.ShowDialog();
         }
         //редактировать категорию
         private void edtCategory_Click(object sender, RoutedEventArgs e)
         {
-            category = new CategoryModel((tree.SelectedItem as Node).Id, (tree.SelectedItem as Node).Name);
-            CategoryEdit edt = new CategoryEdit(category);
-            edt.ShowDialog();
+            //category = new CategoryModel((tree.SelectedItem as Node).Id, (tree.SelectedItem as Node).PId, (tree.SelectedItem as Node).Name, "");
+         //   CategoryEdit edt = new CategoryEdit(category);
+         //   edt.ShowDialog();
            // ProductEdit edtp = new ProductEdit();
             //edtp.ShowDialog();
         }
