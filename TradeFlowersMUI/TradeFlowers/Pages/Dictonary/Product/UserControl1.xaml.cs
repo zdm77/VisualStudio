@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace TradeFlowers.Pages.Dictonary.Product
 {
     /// <summary>
-    /// Логика взаимодействия для FormNewTest.xaml
+    /// Логика взаимодействия для UserControl1.xaml
     /// </summary>
-    public partial class FormNewTest : Window
+    public partial class UserControl1 : UserControl
     {
-        public FormNewTest()
+        public UserControl1()
         {
             InitializeComponent();
-        }
-
-        private void Button_Save_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

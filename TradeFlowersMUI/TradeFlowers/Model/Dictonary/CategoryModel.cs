@@ -1,46 +1,63 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace TradeFlowers.Model.Dictonary
 {
+    public class Record
+    {
+        public int TreeId { get; set; }
+
+        public int ParentId { get; set; }
+
+        public string Name { get; set; }
+        public string ParentName { get; set; }
+    }
+
     public class CategoryModel : IDataErrorInfo
     {
-        private int _id;
-        private string _name;
-        private int _pid;
-        private int _orderBY;
-        private string _pidName;
+    
         public CategoryModel()
         {
 
         }
-        
-        public CategoryModel(int id, int pid, string name, int orderBY, string pidName)
+
+        public CategoryModel(string name, int id, int pid, string pName)
         {
-            _id = id;
-            _name = name;
-            _pid = pid;
-            _orderBY = orderBY;
-            _pidName = pidName;
+            Id = id;
+            Name = name;
+            Children = new List<CategoryModel>();
+            PId = pid;
+            ParentName = pName;
         }
 
-        public CategoryModel(int id, int pid, string name, string pidName)
+        public string Name { get; set; }
+
+        public List<CategoryModel> Children { get; set; }
+
+        public int Id { get; set; }
+        public int PId { get; set; }
+        public string ParentName { get; set; }
+
+        public override string ToString()
         {
-            _id = id;
-            _name = name;
-            _pid = pid;
-            _pidName = pidName;
+            return string.Format("Name: {0}", Name);
         }
-        //    public int Id { get => _id; set => _id = value; }
-        //    public string Name { get => _name; set => _name = value; }
-        //    public int Pid { get => _pid; set => _pid = value; }
-        //    public int OrderBY { get => _orderBY; set => _orderBY = value; }
-        public int Id { get => _id; set => _id = value; }
-        public string PidName { get => _pidName; set => _pidName = value; }
 
-        public int PId { get => _pid; set => _pid = value; }
+        public void Add(Record record)
+        {
+            Traverse().First(node => node.Id == record.ParentId).Children.Add(new CategoryModel(record.Name, record.TreeId, record.ParentId, record.ParentName));
+        }
 
-        public string Name { get => _name; set => _name = value; }
+        private IEnumerable<CategoryModel> Traverse()
+        {
+            yield return this;
+            foreach (CategoryModel child in Children.SelectMany(node => node.Traverse()))
+            {
+                yield return child;
+            }
+        }
 
         public string Error => throw new System.NotImplementedException();
 
@@ -51,7 +68,6 @@ namespace TradeFlowers.Model.Dictonary
                 string error = String.Empty;
                 switch (columnName)
                 {
-
                     case "Name":
                         if (Name == "" || Name is null)
                         {
@@ -62,10 +78,19 @@ namespace TradeFlowers.Model.Dictonary
                             error = "";
                         }
                         break;
-
                 }
                 return error;
             }
+        }
+        public static CategoryModel CreateTree(List<Record> records)
+        {
+            Record rootRecord = records.First(r => r.ParentId == 0);
+            var root = new CategoryModel(rootRecord.Name, rootRecord.TreeId, rootRecord.ParentId, rootRecord.ParentName);
+            foreach (Record record in records.Where(r => r.ParentId != 0))
+            {
+                root.Add(record);
+            }
+            return root;
         }
     }
 }

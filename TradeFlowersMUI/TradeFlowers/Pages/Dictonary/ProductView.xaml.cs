@@ -7,7 +7,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using TradeFlowers.Model;
 using TradeFlowers.Model.Dictonary;
 using TradeFlowers.Pages.Dictonary.Product;
 
@@ -18,10 +17,12 @@ namespace TradeFlowers.Pages.Dictonary
     /// </summary>
     public partial class ProductView : UserControl
     {
-        private List<Node> categoryList = new List<Node>();
+        private List<Record> categoryList = new List<Record>();
+        //  private List<Record> records = new List<Record> { };
         private NpgsqlCommand comm;
         private NpgsqlConnection conn;
         private List<ProductModel> productList = new List<ProductModel>();
+
         //private CategoryModel category;
         //цвета ячеек
         private SolidColorBrush hb = new SolidColorBrush(Colors.Orange);
@@ -33,23 +34,29 @@ namespace TradeFlowers.Pages.Dictonary
             InitializeComponent();
             conn = new NpgsqlConnection(MainWindow.ConnectionString);
             conn.Open();
-            SearchAll.Focus();
+            
             ShowCategory();
             ShowProducts(0);
+            SearchAll.Focus();
+
         }
 
         private void categoryGrid_MouseEnter(object sender, MouseEventArgs e)
         {
-            // CategoryModel c = (tree.SelectedItem as CategoryModel);
-            // c.PId ==0 ? ShowProducts(c.Id) : ShowProducts(0);
-            if ((tree.SelectedItem as Node).Name != "Все")
+            CategoryModel c = (tree.SelectedItem as CategoryModel);
+            //c.PId == 0 ? ShowProducts(c.Id) : ShowProducts(0);
+            try
             {
-                ShowProducts((tree.SelectedItem as Node).Id);
+                if ((tree.SelectedItem as CategoryModel).Name != "Все")
+                {
+                    ShowProducts((tree.SelectedItem as CategoryModel).Id);
+                }
+                else
+                {
+                    ShowProducts(0);
+                }
             }
-            else
-            {
-                ShowProducts(0);
-            }
+            catch { }
         }
 
         private void SearchAll_KeyUp(object sender, KeyEventArgs e)
@@ -64,23 +71,32 @@ namespace TradeFlowers.Pages.Dictonary
         //Загружаем категории
         private void ShowCategory()
         {
-            string sql = "SELECT id_category, pid_category, name_category, order_category FROM продукция.категории order by order_category";
-            comm = new NpgsqlCommand(sql, conn);
-            //try
-            //{
-            NpgsqlDataReader dr = comm.ExecuteReader();
-
-            while (dr.Read())
+            StringBuilder sql = new StringBuilder("SELECT * from продукция.viewКатегории order by pid_category");
+            //sql.Append(" FROM продукция.категории order by order_category ");         
+            //   string sql = "SELECT id_category, pid_category, name_category, order_category FROM продукция.категории order by order_category";
+            comm = new NpgsqlCommand(sql.ToString(), conn);
+            try
             {
-                try
-                {
-                    categoryList.Add(new Node (dr["name_category"].ToString(),(int)dr["pid_category"],  (int)dr["id_category"] ));
-                }
-                catch { }
-            }
+                NpgsqlDataReader dr = comm.ExecuteReader();
 
-            var root = Node.CreateTree(categoryList);
-            tree.ItemsSource = new[] { root };
+                while (dr.Read())
+                {
+
+                    categoryList.Add(new Record
+                    {
+                        Name = dr["name_category"].ToString(),
+                        TreeId = (int)dr["id_category"],
+                        ParentId = (int)dr["pid_category"],
+                        ParentName = dr["parentname"].ToString(),
+                    }
+                   );
+                }
+                var root = CategoryModel.CreateTree(categoryList);
+                tree.ItemsSource = new[] { root };
+            }
+            catch { }
+
+
             conn.Close();
             //}
             //catch (Exception ex)
@@ -157,19 +173,23 @@ namespace TradeFlowers.Pages.Dictonary
 
         private void addCategory_Click(object sender, RoutedEventArgs e)
         {
-            CategoryEdit edt = new CategoryEdit(new CategoryModel());
+            CategoryModel m = new CategoryModel();
+            m.ParentName = (tree.SelectedItem as CategoryModel).Name;
+            CategoryEdit edt = new CategoryEdit(m);
+
+            //  string sql="select "
             edt.ShowDialog();
             // ProductEdit edtp = new ProductEdit();
             // edtp.ShowDialog();
         }
+
         //редактировать категорию
         private void edtCategory_Click(object sender, RoutedEventArgs e)
         {
-            //category = new CategoryModel((tree.SelectedItem as Node).Id, (tree.SelectedItem as Node).PId, (tree.SelectedItem as Node).Name, "");
-         //   CategoryEdit edt = new CategoryEdit(category);
-         //   edt.ShowDialog();
-           // ProductEdit edtp = new ProductEdit();
-            //edtp.ShowDialog();
+            
+            CategoryEdit edt = new CategoryEdit((tree.SelectedItem as CategoryModel));
+            edt.ShowDialog();
+
         }
 
         //метод раскраски по условию
@@ -182,5 +202,17 @@ namespace TradeFlowers.Pages.Dictonary
             //    e.Row.Background = nb;
             // e.Row.Background = product.Id > 50 ? hb : nb;
         }
+        //Категорию вверх
+        private void edtCategoryUp_Click(object sender, RoutedEventArgs e)
+        {
+            //текущая категория
+            CategoryModel m = tree.SelectedItem as CategoryModel;
+            string sql = "update продукция.категории set pid=";
+
+                 comm = new NpgsqlCommand(sql, conn);
+
+        }
+
+        //drug and drop
     }
 }

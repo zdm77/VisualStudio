@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:src="clr-namespace:TradeFlowers.Model"            
+             xmlns:src="clr-namespace:TradeFlowers.Model.Dictonary"            
              xmlns:local="clr-namespace:TradeFlowers.Utils"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
@@ -19,36 +19,13 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.5*" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <!--Категории-->
-        <ToolBar DockPanel.Dock="Top" Grid.Column="0" Grid.Row="0">
-            <ToolBar.Resources>
-                <Style TargetType="{x:Type Image}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ButtonBase}, AncestorLevel=1}, Path=IsEnabled}" Value="False">
-                            <Setter Property="Opacity" Value="0.30" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ToolBar.Resources>
-            <Button>
-                <Image Source="../../Images/Save.png" Height="16" />
-            </Button>
-        </ToolBar>
-       
-        <TreeView MouseLeftButtonUp="categoryGrid_MouseEnter" x:Name="tree" Grid.Row="2">
-            <TreeView.Resources>
-                <HierarchicalDataTemplate DataType="{x:Type src:Node}" ItemsSource="{Binding Path=Children}">
-                    <TextBlock Text="{Binding Path=Name}" />                  
-                </HierarchicalDataTemplate>
-                
-            </TreeView.Resources>
-        </TreeView>
         <ToolBar DockPanel.Dock="Top" Grid.Column="0">
-            <ToolBar.Resources>
+            <!--<ToolBar.Resources>
                 <Style TargetType="{x:Type Image}">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType={x:Type ButtonBase}, AncestorLevel=1}, Path=IsEnabled}" Value="False">
@@ -56,13 +33,37 @@
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </ToolBar.Resources>
-            <Button  Name="addCategory" Click="addCategory_Click" Content="Добавить">
+            </ToolBar.Resources>-->
+            <Button  Name="addCategory" Click="addCategory_Click">
                 
-                <!--<Image MouseLeftButtonUp="Image_MouseLeftButtonUp" Source="../../Images/Save.png" Height="16" />-->
+                    <Image Source="../../Images/Save.png"  />
+                  
+             
             </Button>
-            <Button  Name="edtCategory" Click="edtCategory_Click" Content="Добавить"/>
+            
+            <!--<Button  Name="edtCategory" Click="edtCategory_Click" Content="="/>-->
+
         </ToolBar>
+
+        <TreeView AllowDrop="True" MouseLeftButtonUp="categoryGrid_MouseEnter" x:Name="tree" Grid.Row="2">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type src:CategoryModel}" ItemsSource="{Binding Path=Children}">
+                    <TextBlock Text="{Binding Path=Name}" />                  
+                </HierarchicalDataTemplate>                
+            </TreeView.Resources>
+            <!--<TreeView.ItemContainerStyle>
+
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <EventSetter Event="TreeViewItem.DragOver"  Handler="treeView_DragOver"/>
+                    <EventSetter Event="TreeViewItem.Drop" Handler="treeView_Drop"/>
+                    <EventSetter Event="TreeViewItem.MouseMove" Handler="treeView_MouseMove"/>
+                    <EventSetter Event="TreeViewItem.MouseDown" Handler="treeView_MouseDown"/>
+                </Style>
+
+            </TreeView.ItemContainerStyle>-->
+
+        </TreeView>
+        
         <GridSplitter Grid.Column="1" Grid.RowSpan="3" ShowsPreview="False" Width="3"
         HorizontalAlignment="Center" VerticalAlignment="Stretch" />
         <!--ТОВАРЫ-->
@@ -77,7 +78,7 @@
                 </Style>
             </ToolBar.Resources>
             <Button>
-                <!--<Image Source="../../Images/Save.png" Height="16" />-->
+                <Image Source="../../Images/Save.png" Height="16" />
             </Button>
         </ToolBar>
         <ToolBar DockPanel.Dock="Top" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">

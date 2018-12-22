@@ -21,7 +21,7 @@
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
         <TextBlock Text="Родительская категория" Grid.Column="0" VerticalAlignment="Center"  />
-        <TextBox Name="rootName" Text="{Binding Path=PId}"  Grid.Column="1" MinWidth="255" Grid.ColumnSpan="2" IsEnabled="False" IsReadOnly="True">
+        <TextBox Name="rootName" Text="{Binding Path=ParentName}"  Grid.Column="1" MinWidth="255" Grid.ColumnSpan="2" IsEnabled="False" IsReadOnly="True">
             <!--<TextBox.Text>
                 <Binding Path="Name" NotifyOnValidationError="True">
                     <Binding.ValidationRules>

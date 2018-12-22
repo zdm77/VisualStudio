@@ -28,18 +28,13 @@ namespace TradeFlowers.Pages.Dictonary.Product
         //private CategoryModel Category;
         public CategoryEdit(CategoryModel category)
         {
-            InitializeComponent();
-            //if (category is null)
-            //{
-            //    CategoryModel Category = new CategoryModel();
-            //} else
-            //{
-            //    Category = category;
-            //}           
+            InitializeComponent();          
             this.DataContext = category;
-            textName.Focus();
-            // define the dialog buttons
+            textName.Focus();            
             this.Buttons = new Button[] { };
+        }
+        private void init() {
+
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
