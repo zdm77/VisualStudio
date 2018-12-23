@@ -18,7 +18,6 @@ namespace TradeFlowers.Model
         public prod_category()
         {
             this.prod_poduct = new HashSet<prod_poduct>();
-            this.prod_category1 = new HashSet<prod_category>();
         }
     
         public int category_id { get; set; }
@@ -27,8 +26,5 @@ namespace TradeFlowers.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<prod_poduct> prod_poduct { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<prod_category> prod_category1 { get; set; }
-        public virtual prod_category prod_category2 { get; set; }
     }
 }

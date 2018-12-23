@@ -21,24 +21,6 @@
           <Property Name="product_name" Type="varchar" MaxLength="255" />
           <Property Name="product_category_id" Type="int4" />
         </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "wwwunifloragroup_trade.public.view_product" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="view_product">
-          <Property Name="id" Type="int4" />
-          <Property Name="product_name" Type="varchar" MaxLength="255" />
-        </EntityType>-->
-        <Association Name="prod_category_fk">
-          <End Role="prod_category" Type="Self.prod_category" Multiplicity="0..1" />
-          <End Role="prod_category1" Type="Self.prod_category" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="prod_category">
-              <PropertyRef Name="category_id" />
-            </Principal>
-            <Dependent Role="prod_category1">
-              <PropertyRef Name="paerent_category" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="prod_poduct_fk">
           <End Role="prod_category" Type="Self.prod_category" Multiplicity="0..1" />
           <End Role="prod_poduct" Type="Self.prod_poduct" Multiplicity="*" />
@@ -54,10 +36,6 @@
         <EntityContainer Name="Хранилище wwwunifloragroup_tradeModelContainer">
           <EntitySet Name="prod_category" EntityType="Self.prod_category" Schema="public" store:Type="Tables" />
           <EntitySet Name="prod_poduct" EntityType="Self.prod_poduct" Schema="public" store:Type="Tables" />
-          <AssociationSet Name="prod_category_fk" Association="Self.prod_category_fk">
-            <End Role="prod_category" EntitySet="prod_category" />
-            <End Role="prod_category1" EntitySet="prod_category" />
-          </AssociationSet>
           <AssociationSet Name="prod_poduct_fk" Association="Self.prod_poduct_fk">
             <End Role="prod_category" EntitySet="prod_category" />
             <End Role="prod_poduct" EntitySet="prod_poduct" />
@@ -87,8 +65,6 @@
           <Property Name="paerent_category" Type="Int32" />
           <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="prod_poduct" Relationship="tradeModel.prod_poduct_fk" FromRole="prod_category" ToRole="prod_poduct" />
-          <NavigationProperty Name="prod_category1" Relationship="tradeModel.prod_category_fk" FromRole="prod_category" ToRole="prod_category1" />
-          <NavigationProperty Name="prod_category2" Relationship="tradeModel.prod_category_fk" FromRole="prod_category1" ToRole="prod_category" />
         </EntityType>
         <EntityType Name="prod_poduct">
           <Key>

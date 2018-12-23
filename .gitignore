@@ -7,3 +7,9 @@
 /TradeFlowersMUI/TradeFlowers/.vs/TradeFlowers/v15
 /TradeFlowersMUI/TradeFlowers/obj
 /TradeFlowersEntity/TradeFlowers/obj
+/TradeFlowersEntity/TradeFlowers/.gitignore
+/TradeFlowersEntity/TradeFlowers/.vs/TradeFlowers/v15/.suo
+/TradeFlowersEntity/TradeFlowers/.vs/TradeFlowers/v15/Server/sqlite3/db.lock
+/TradeFlowersEntity/TradeFlowers/.vs/TradeFlowers/v15/Server/sqlite3/storage.ide
+/TradeFlowersEntity/TradeFlowers/.vs/TradeFlowers/v15/Server/sqlite3/storage.ide-shm
+/TradeFlowersEntity/TradeFlowers/.vs/TradeFlowers/v15/Server/sqlite3/storage.ide-wal
