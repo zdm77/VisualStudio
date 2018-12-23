@@ -24,7 +24,7 @@ namespace TradeFlowers {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class wwwunifloragroup_tradeDataSet : global::System.Data.DataSet {
         
-        private t1DataTable tablet1;
+        private view_productDataTable tableview_product;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace TradeFlowers {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["t1"] != null)) {
-                    base.Tables.Add(new t1DataTable(ds.Tables["t1"]));
+                if ((ds.Tables["view_product"] != null)) {
+                    base.Tables.Add(new view_productDataTable(ds.Tables["view_product"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace TradeFlowers {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public t1DataTable t1 {
+        public view_productDataTable view_product {
             get {
-                return this.tablet1;
+                return this.tableview_product;
             }
         }
         
@@ -152,8 +152,8 @@ namespace TradeFlowers {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["t1"] != null)) {
-                    base.Tables.Add(new t1DataTable(ds.Tables["t1"]));
+                if ((ds.Tables["view_product"] != null)) {
+                    base.Tables.Add(new view_productDataTable(ds.Tables["view_product"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace TradeFlowers {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablet1 = ((t1DataTable)(base.Tables["t1"]));
+            this.tableview_product = ((view_productDataTable)(base.Tables["view_product"]));
             if ((initTable == true)) {
-                if ((this.tablet1 != null)) {
-                    this.tablet1.InitVars();
+                if ((this.tableview_product != null)) {
+                    this.tableview_product.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace TradeFlowers {
             this.Namespace = "http://tempuri.org/wwwunifloragroup_tradeDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablet1 = new t1DataTable();
-            base.Tables.Add(this.tablet1);
+            this.tableview_product = new view_productDataTable();
+            base.Tables.Add(this.tableview_product);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializet1() {
+        private bool ShouldSerializeview_product() {
             return false;
         }
         
@@ -270,25 +270,25 @@ namespace TradeFlowers {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void t1RowChangeEventHandler(object sender, t1RowChangeEvent e);
+        public delegate void view_productRowChangeEventHandler(object sender, view_productRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class t1DataTable : global::System.Data.TypedTableBase<t1Row> {
+        public partial class view_productDataTable : global::System.Data.TypedTableBase<view_productRow> {
             
             private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columnname;
+            private global::System.Data.DataColumn columnproduct_name;
             
-            private global::System.Data.DataColumn columnqq;
+            private global::System.Data.DataColumn columncategory_name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public t1DataTable() {
-                this.TableName = "t1";
+            public view_productDataTable() {
+                this.TableName = "view_product";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +296,7 @@ namespace TradeFlowers {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal t1DataTable(global::System.Data.DataTable table) {
+            internal view_productDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,7 +313,7 @@ namespace TradeFlowers {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected t1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected view_productDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -328,17 +328,17 @@ namespace TradeFlowers {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
+            public global::System.Data.DataColumn product_nameColumn {
                 get {
-                    return this.columnname;
+                    return this.columnproduct_name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn qqColumn {
+            public global::System.Data.DataColumn category_nameColumn {
                 get {
-                    return this.columnqq;
+                    return this.columncategory_name;
                 }
             }
             
@@ -353,47 +353,47 @@ namespace TradeFlowers {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public t1Row this[int index] {
+            public view_productRow this[int index] {
                 get {
-                    return ((t1Row)(this.Rows[index]));
+                    return ((view_productRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event t1RowChangeEventHandler t1RowChanging;
+            public event view_productRowChangeEventHandler view_productRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event t1RowChangeEventHandler t1RowChanged;
+            public event view_productRowChangeEventHandler view_productRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event t1RowChangeEventHandler t1RowDeleting;
+            public event view_productRowChangeEventHandler view_productRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event t1RowChangeEventHandler t1RowDeleted;
+            public event view_productRowChangeEventHandler view_productRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Addt1Row(t1Row row) {
+            public void Addview_productRow(view_productRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public t1Row Addt1Row(string name, int qq) {
-                t1Row rowt1Row = ((t1Row)(this.NewRow()));
+            public view_productRow Addview_productRow(int id, string product_name, string category_name) {
+                view_productRow rowview_productRow = ((view_productRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        name,
-                        qq};
-                rowt1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowt1Row);
-                return rowt1Row;
+                        id,
+                        product_name,
+                        category_name};
+                rowview_productRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowview_productRow);
+                return rowview_productRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                t1DataTable cln = ((t1DataTable)(base.Clone()));
+                view_productDataTable cln = ((view_productDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -401,15 +401,15 @@ namespace TradeFlowers {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new t1DataTable();
+                return new view_productDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
-                this.columnname = base.Columns["name"];
-                this.columnqq = base.Columns["qq"];
+                this.columnproduct_name = base.Columns["product_name"];
+                this.columncategory_name = base.Columns["category_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -417,44 +417,38 @@ namespace TradeFlowers {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnqq = new global::System.Data.DataColumn("qq", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnqq);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid}, false));
-                this.columnid.AutoIncrement = true;
-                this.columnid.AutoIncrementSeed = -1;
-                this.columnid.AutoIncrementStep = -1;
-                this.columnid.AllowDBNull = false;
-                this.columnid.Unique = true;
-                this.columnname.MaxLength = 200;
+                this.columnproduct_name = new global::System.Data.DataColumn("product_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnproduct_name);
+                this.columncategory_name = new global::System.Data.DataColumn("category_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncategory_name);
+                this.columnproduct_name.MaxLength = 255;
+                this.columncategory_name.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public t1Row Newt1Row() {
-                return ((t1Row)(this.NewRow()));
+            public view_productRow Newview_productRow() {
+                return ((view_productRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new t1Row(builder);
+                return new view_productRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(t1Row);
+                return typeof(view_productRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.t1RowChanged != null)) {
-                    this.t1RowChanged(this, new t1RowChangeEvent(((t1Row)(e.Row)), e.Action));
+                if ((this.view_productRowChanged != null)) {
+                    this.view_productRowChanged(this, new view_productRowChangeEvent(((view_productRow)(e.Row)), e.Action));
                 }
             }
             
@@ -462,8 +456,8 @@ namespace TradeFlowers {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.t1RowChanging != null)) {
-                    this.t1RowChanging(this, new t1RowChangeEvent(((t1Row)(e.Row)), e.Action));
+                if ((this.view_productRowChanging != null)) {
+                    this.view_productRowChanging(this, new view_productRowChangeEvent(((view_productRow)(e.Row)), e.Action));
                 }
             }
             
@@ -471,8 +465,8 @@ namespace TradeFlowers {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.t1RowDeleted != null)) {
-                    this.t1RowDeleted(this, new t1RowChangeEvent(((t1Row)(e.Row)), e.Action));
+                if ((this.view_productRowDeleted != null)) {
+                    this.view_productRowDeleted(this, new view_productRowChangeEvent(((view_productRow)(e.Row)), e.Action));
                 }
             }
             
@@ -480,14 +474,14 @@ namespace TradeFlowers {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.t1RowDeleting != null)) {
-                    this.t1RowDeleting(this, new t1RowChangeEvent(((t1Row)(e.Row)), e.Action));
+                if ((this.view_productRowDeleting != null)) {
+                    this.view_productRowDeleting(this, new view_productRowChangeEvent(((view_productRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Removet1Row(t1Row row) {
+            public void Removeview_productRow(view_productRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -514,7 +508,7 @@ namespace TradeFlowers {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "t1DataTable";
+                attribute2.FixedValue = "view_productDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -558,82 +552,99 @@ namespace TradeFlowers {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class t1Row : global::System.Data.DataRow {
+        public partial class view_productRow : global::System.Data.DataRow {
             
-            private t1DataTable tablet1;
+            private view_productDataTable tableview_product;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal t1Row(global::System.Data.DataRowBuilder rb) : 
+            internal view_productRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablet1 = ((t1DataTable)(this.Table));
+                this.tableview_product = ((view_productDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int id {
                 get {
-                    return ((int)(this[this.tablet1.idColumn]));
-                }
-                set {
-                    this[this.tablet1.idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string name {
-                get {
                     try {
-                        return ((string)(this[this.tablet1.nameColumn]));
+                        return ((int)(this[this.tableview_product.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name\' в таблице \'t1\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'id\' в таблице \'view_product\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablet1.nameColumn] = value;
+                    this[this.tableview_product.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int qq {
+            public string product_name {
                 get {
                     try {
-                        return ((int)(this[this.tablet1.qqColumn]));
+                        return ((string)(this[this.tableview_product.product_nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'qq\' в таблице \'t1\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'product_name\' в таблице \'view_product\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablet1.qqColumn] = value;
+                    this[this.tableview_product.product_nameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tablet1.nameColumn);
+            public string category_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableview_product.category_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'category_name\' в таблице \'view_product\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableview_product.category_nameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetnameNull() {
-                this[this.tablet1.nameColumn] = global::System.Convert.DBNull;
+            public bool IsidNull() {
+                return this.IsNull(this.tableview_product.idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsqqNull() {
-                return this.IsNull(this.tablet1.qqColumn);
+            public void SetidNull() {
+                this[this.tableview_product.idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetqqNull() {
-                this[this.tablet1.qqColumn] = global::System.Convert.DBNull;
+            public bool Isproduct_nameNull() {
+                return this.IsNull(this.tableview_product.product_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setproduct_nameNull() {
+                this[this.tableview_product.product_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Iscategory_nameNull() {
+                return this.IsNull(this.tableview_product.category_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setcategory_nameNull() {
+                this[this.tableview_product.category_nameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -641,22 +652,22 @@ namespace TradeFlowers {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class t1RowChangeEvent : global::System.EventArgs {
+        public class view_productRowChangeEvent : global::System.EventArgs {
             
-            private t1Row eventRow;
+            private view_productRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public t1RowChangeEvent(t1Row row, global::System.Data.DataRowAction action) {
+            public view_productRowChangeEvent(view_productRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public t1Row Row {
+            public view_productRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -684,7 +695,7 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class t1TableAdapter : global::System.ComponentModel.Component {
+    public partial class view_productTableAdapter : global::System.ComponentModel.Component {
         
         private global::Npgsql.NpgsqlDataAdapter _adapter;
         
@@ -698,7 +709,7 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public t1TableAdapter() {
+        public view_productTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -795,30 +806,11 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
             this._adapter = new global::Npgsql.NpgsqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "t1";
+            tableMapping.DataSetTable = "view_product";
             tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("qq", "qq");
+            tableMapping.ColumnMappings.Add("product_name", "product_name");
+            tableMapping.ColumnMappings.Add("category_name", "category_name");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::Npgsql.NpgsqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"wwwunifloragroup_trade\".\"public\".\"t1\" (\"name\", \"qq\") VALUES (@name, " +
-                "@qq)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Varchar;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@qq";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "qq";
-            this._adapter.InsertCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -834,7 +826,7 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
             this._commandCollection = new global::Npgsql.NpgsqlCommand[1];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"id\", \"name\", \"qq\" FROM \"public\".\"t1\"";
+            this._commandCollection[0].CommandText = "SELECT \"id\", \"product_name\", \"category_name\" FROM \"public\".\"view_product\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -842,7 +834,7 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(wwwunifloragroup_tradeDataSet.t1DataTable dataTable) {
+        public virtual int Fill(wwwunifloragroup_tradeDataSet.view_productDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -855,73 +847,11 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual wwwunifloragroup_tradeDataSet.t1DataTable GetData() {
+        public virtual wwwunifloragroup_tradeDataSet.view_productDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            wwwunifloragroup_tradeDataSet.t1DataTable dataTable = new wwwunifloragroup_tradeDataSet.t1DataTable();
+            wwwunifloragroup_tradeDataSet.view_productDataTable dataTable = new wwwunifloragroup_tradeDataSet.view_productDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(wwwunifloragroup_tradeDataSet.t1DataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(wwwunifloragroup_tradeDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "t1");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string @name, global::System.Nullable<int> @qq) {
-            if ((@name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(@name));
-            }
-            if ((@qq.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(@qq.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -937,8 +867,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private t1TableAdapter _t1TableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -951,20 +879,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public t1TableAdapter t1TableAdapter {
-            get {
-                return this._t1TableAdapter;
-            }
-            set {
-                this._t1TableAdapter = value;
             }
         }
         
@@ -987,10 +901,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._t1TableAdapter != null) 
-                            && (this._t1TableAdapter.Connection != null))) {
-                    return this._t1TableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1004,9 +914,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._t1TableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1018,15 +925,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(wwwunifloragroup_tradeDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._t1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.t1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._t1TableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1037,14 +935,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(wwwunifloragroup_tradeDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._t1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.t1.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._t1TableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1055,14 +945,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateDeletedRows(wwwunifloragroup_tradeDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._t1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.t1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._t1TableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1102,11 +984,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._t1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._t1TableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -1139,15 +1016,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._t1TableAdapter != null)) {
-                    revertConnections.Add(this._t1TableAdapter, this._t1TableAdapter.Connection);
-                    this._t1TableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(workConnection));
-                    this._t1TableAdapter.Transaction = ((global::Npgsql.NpgsqlTransaction)(workTransaction));
-                    if (this._t1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._t1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._t1TableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1205,10 +1073,6 @@ namespace TradeFlowers.wwwunifloragroup_tradeDataSetTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._t1TableAdapter != null)) {
-                    this._t1TableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(revertConnections[this._t1TableAdapter]));
-                    this._t1TableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

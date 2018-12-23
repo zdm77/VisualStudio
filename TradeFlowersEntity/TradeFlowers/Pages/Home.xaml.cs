@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TradeFlowers.Pages.Reports;
 
 namespace TradeFlowers.Pages
 {
@@ -23,6 +24,12 @@ namespace TradeFlowers.Pages
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FormReportTest t = new FormReportTest();
+            t.Show();
         }
     }
 }

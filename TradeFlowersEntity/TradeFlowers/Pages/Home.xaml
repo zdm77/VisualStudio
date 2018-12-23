@@ -11,5 +11,6 @@
                 <TextBlock Text="TODO: add content" />
             </StackPanel>
         </ScrollViewer>
+        <Button Click="Button_Click"/>
     </Grid>
 </UserControl>
