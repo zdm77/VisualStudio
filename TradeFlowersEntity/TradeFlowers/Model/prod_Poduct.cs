@@ -13,6 +13,7 @@ namespace TradeFlowers.Model
     using System.Collections.Generic;
     
     public partial class prod_poduct
+	
     {
         public int product_id { get; set; }
         public string product_name { get; set; }
