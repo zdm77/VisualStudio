@@ -19,9 +19,12 @@ namespace TradeFlowers.Pages.Dictonary
     /// <summary>
     /// Логика взаимодействия для CategorysView.xaml
     /// </summary>
+   
     public partial class CategorysView : UserControl
     {
+        //public event Action<> getCategorySelect;
         //private List<Record> categoryList = new List<Record>();
+        public static int categoryId;
         public CategorysView()
         {
             InitializeComponent();
@@ -42,6 +45,31 @@ namespace TradeFlowers.Pages.Dictonary
                 tree.ItemsSource = new[] { root };
             }
 
+        }
+        //public void  categoryGrid_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    MessageBox.Show("1");
+        //    getCategorySelect();
+          
+        //}
+        public int getCategorySelect()
+        {
+            prod_category c = (tree.SelectedItem as prod_category);
+            //c.PId == 0 ? ShowProducts(c.Id) : ShowProducts(0);
+            try
+            {
+                if ((tree.SelectedItem as prod_category).category_name != "Все")
+                {
+                    categoryId = (tree.SelectedItem as prod_category).category_id;
+                }
+                else
+                {
+                    categoryId = 0;
+                }
+                return categoryId;
+
+            }
+            catch { return 0; }
         }
     }
 }

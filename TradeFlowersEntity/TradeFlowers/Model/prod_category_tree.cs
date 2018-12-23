@@ -14,7 +14,7 @@ namespace TradeFlowers.Model
     //    public string Name { get; set; }
     //    public string ParentName { get; set; }
     //}
-    class prod_category_tree: prod_category
+    class prod_category_tree : prod_category
     {
         public List<prod_category_tree> Children { get; set; }
         public prod_category_tree(string name, int id, int pid)
@@ -23,11 +23,17 @@ namespace TradeFlowers.Model
             category_name = name;
             Children = new List<prod_category_tree>();
             paerent_category = pid;
-          //  ParentName = pName;
+            //  ParentName = pName;
         }
         public void Add(prod_category record)
         {
-            Traverse().First(node => node.category_id == record.paerent_category).Children.Add(new prod_category_tree(record.category_name, record.category_id, (int)record.paerent_category));
+            Traverse()
+                .First(node => node.category_id == record.paerent_category)
+                .Children
+                .Add(new prod_category_tree(record.category_name,
+                                            record.category_id,
+                                            (int)record.paerent_category)
+                                            );
         }
         private IEnumerable<prod_category_tree> Traverse()
         {

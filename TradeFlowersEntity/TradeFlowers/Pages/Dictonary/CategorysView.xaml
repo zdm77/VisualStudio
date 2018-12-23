@@ -15,7 +15,7 @@
         <ToolBar DockPanel.Dock="Top">
 
         </ToolBar>
-        <TreeView AllowDrop="True"  x:Name="tree" Grid.Row="2">
+        <TreeView AllowDrop="True"  x:Name="tree" Grid.Row="2" >
             <TreeView.Resources>
                 <HierarchicalDataTemplate DataType="{x:Type src:prod_category_tree}" ItemsSource="{Binding Path=Children}">
                     <TextBlock Text="{Binding Path=category_name}" />

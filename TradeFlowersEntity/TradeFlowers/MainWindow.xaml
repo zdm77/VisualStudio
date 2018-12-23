@@ -11,6 +11,7 @@
                 <mui:Link DisplayName="" Source="/Pages/Dictonary/DictonaryView.xaml" />
                 <mui:Link DisplayName="Номенклатура" Source="/Pages/Dictonary/ProductsView.xaml" />
                 <mui:Link DisplayName="Поставщики" Source="/Pages/Dictonary/CategorysView.xaml" />
+                <mui:Link DisplayName="Поставщики" Source="/Pages/Dictonary/CategoryProductView.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
   
