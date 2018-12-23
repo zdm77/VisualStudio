@@ -5,15 +5,15 @@ using System.Linq;
 
 namespace TradeFlowers.Model
 {
-    public class Record
-    {
-        public int TreeId { get; set; }
+    //public class Record
+    //{
+    //    public int TreeId { get; set; }
 
-        public int ParentId { get; set; }
+    //    public int ParentId { get; set; }
 
-        public string Name { get; set; }
-        public string ParentName { get; set; }
-    }
+    //    public string Name { get; set; }
+    //    public string ParentName { get; set; }
+    //}
     class prod_category_tree: prod_category
     {
         public List<prod_category_tree> Children { get; set; }
@@ -25,9 +25,9 @@ namespace TradeFlowers.Model
             paerent_category = pid;
           //  ParentName = pName;
         }
-        public void Add(Record record)
+        public void Add(prod_category record)
         {
-            Traverse().First(node => node.category_id == record.ParentId).Children.Add(new prod_category_tree(record.Name, record.TreeId, record.ParentId));
+            Traverse().First(node => node.category_id == record.paerent_category).Children.Add(new prod_category_tree(record.category_name, record.category_id, (int)record.paerent_category));
         }
         private IEnumerable<prod_category_tree> Traverse()
         {
@@ -37,11 +37,11 @@ namespace TradeFlowers.Model
                 yield return child;
             }
         }
-        public static prod_category_tree CreateTree(List<Record> records)
+        public static prod_category_tree CreateTree(List<prod_category> records)
         {
-            Record rootRecord = records.First(r => r.ParentId == 0);
-            var root = new prod_category_tree(rootRecord.Name, rootRecord.TreeId, rootRecord.ParentId);
-            foreach (Record record in records.Where(r => r.ParentId != 0))
+            prod_category rootRecord = records.First(r => r.paerent_category == 0);
+            var root = new prod_category_tree(rootRecord.category_name, rootRecord.category_id, (int)rootRecord.paerent_category);
+            foreach (prod_category record in records.Where(r => r.paerent_category != 0))
             {
                 root.Add(record);
             }
