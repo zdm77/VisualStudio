@@ -87,8 +87,12 @@
     <Compile Include="Model\prod_category.cs">
       <DependentUpon>TradeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\prod_category_tree.cs" />
     <Compile Include="Model\prod_poduct.cs">
       <DependentUpon>TradeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Dictonary\CategorysView.xaml.cs">
+      <DependentUpon>CategorysView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Dictonary\DictonaryView.xaml.cs">
       <DependentUpon>DictonaryView.xaml</DependentUpon>
@@ -129,6 +133,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Dictonary\CategorysView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Dictonary\DictonaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

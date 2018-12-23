@@ -10,7 +10,7 @@
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="" Source="/Pages/Dictonary/DictonaryView.xaml" />
                 <mui:Link DisplayName="Номенклатура" Source="/Pages/Dictonary/ProductsView.xaml" />
-                <mui:Link DisplayName="Поставщики" Source="/Pages/Dictonary/1.xaml" />
+                <mui:Link DisplayName="Поставщики" Source="/Pages/Dictonary/CategorysView.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
   

@@ -137,3 +137,6 @@ D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictona
 D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\TradeFlowers_MarkupCompile.lref
 D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\DictonaryView.baml
 D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\ProductsView.baml
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\CategorysView.g.cs
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\CategorysView.baml
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\GeneratedInternalTypeHelper.g.cs
