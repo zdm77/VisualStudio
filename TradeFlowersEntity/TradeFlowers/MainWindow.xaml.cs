@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TradeFlowers.Model;
 
 namespace TradeFlowers
 {
@@ -21,9 +22,26 @@ namespace TradeFlowers
     /// </summary>
     public partial class MainWindow : ModernWindow
     {
+        public tradeEntities db;
         public MainWindow()
         {
             InitializeComponent();
+            using (tradeEntities db = new tradeEntities())
+            {
+                var q = db.prod_Category;
+                
+                //var q = from t in db.категории
+                //        where t.name_category.ToUpper().StartsWith("В")
+                //        orderby t.name_category
+                //        select t;
+
+
+                foreach (prod_Category t in q)
+                {
+                    Console.WriteLine(t.categoryName);
+                }
+
+            }
         }
     }
 }
