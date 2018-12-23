@@ -132,3 +132,8 @@ D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\TradeFlowers.
 D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\TradeFlowers.exe
 D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\TradeFlowers.pdb
 D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\TradeFlowers.csprojResolveAssemblyReference.cache
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\DictonaryView.g.cs
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\ProductsView.g.cs
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\TradeFlowers_MarkupCompile.lref
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\DictonaryView.baml
+D:\_Project\VisualStudio\TradeFlowersEntity\TradeFlowers\obj\Debug\Pages\Dictonary\ProductsView.baml

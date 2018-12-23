@@ -5,47 +5,62 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище wwwunifloragroup_tradeModel" Provider="Npgsql" ProviderManifestToken="8.4.9" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="prod_Category">
+        <EntityType Name="prod_category">
           <Key>
-            <PropertyRef Name="CategoryId" />
+            <PropertyRef Name="category_id" />
           </Key>
-          <Property Name="CategoryId" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PaerentCategory" Type="int4" />
-          <Property Name="categoryName" Type="varchar" MaxLength="255" />
+          <Property Name="category_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paerent_category" Type="int4" />
+          <Property Name="category_name" Type="varchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="prod_Poduct">
+        <EntityType Name="prod_poduct">
           <Key>
-            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="ProductId" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="productName" Type="varchar" MaxLength="255" />
-          <Property Name="productCategoryId" Type="int4" />
+          <Property Name="product_id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="varchar" MaxLength="255" />
+          <Property Name="product_category_id" Type="int4" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6013: Первичный ключ в таблице или представлении "wwwunifloragroup_trade.public.view1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
-        <EntityType Name="view1">
-          <Property Name="productid" Type="int4" />
-          <Property Name="productname" Type="varchar" MaxLength="255" />
-          <Property Name="name_category" Type="varchar" MaxLength="255" />
+предупреждение 6013: Первичный ключ в таблице или представлении "wwwunifloragroup_trade.public.view_product" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="view_product">
+          <Property Name="id" Type="int4" />
+          <Property Name="product_name" Type="varchar" MaxLength="255" />
         </EntityType>-->
-        <Association Name="prod_Poduct_fk">
-          <End Role="prod_Category" Type="Self.prod_Category" Multiplicity="0..1" />
-          <End Role="prod_Poduct" Type="Self.prod_Poduct" Multiplicity="*" />
+        <Association Name="prod_category_fk">
+          <End Role="prod_category" Type="Self.prod_category" Multiplicity="0..1" />
+          <End Role="prod_category1" Type="Self.prod_category" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="prod_Category">
-              <PropertyRef Name="CategoryId" />
+            <Principal Role="prod_category">
+              <PropertyRef Name="category_id" />
             </Principal>
-            <Dependent Role="prod_Poduct">
-              <PropertyRef Name="productCategoryId" />
+            <Dependent Role="prod_category1">
+              <PropertyRef Name="paerent_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="prod_poduct_fk">
+          <End Role="prod_category" Type="Self.prod_category" Multiplicity="0..1" />
+          <End Role="prod_poduct" Type="Self.prod_poduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prod_category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="prod_poduct">
+              <PropertyRef Name="product_category_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище wwwunifloragroup_tradeModelContainer">
-          <EntitySet Name="prod_Category" EntityType="Self.prod_Category" Schema="public" store:Type="Tables" />
-          <EntitySet Name="prod_Poduct" EntityType="Self.prod_Poduct" Schema="public" store:Type="Tables" />
-          <AssociationSet Name="prod_Poduct_fk" Association="Self.prod_Poduct_fk">
-            <End Role="prod_Category" EntitySet="prod_Category" />
-            <End Role="prod_Poduct" EntitySet="prod_Poduct" />
+          <EntitySet Name="prod_category" EntityType="Self.prod_category" Schema="public" store:Type="Tables" />
+          <EntitySet Name="prod_poduct" EntityType="Self.prod_poduct" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="prod_category_fk" Association="Self.prod_category_fk">
+            <End Role="prod_category" EntitySet="prod_category" />
+            <End Role="prod_category1" EntitySet="prod_category" />
+          </AssociationSet>
+          <AssociationSet Name="prod_poduct_fk" Association="Self.prod_poduct_fk">
+            <End Role="prod_category" EntitySet="prod_category" />
+            <End Role="prod_poduct" EntitySet="prod_poduct" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -53,40 +68,58 @@
     <edmx:ConceptualModels>
       <Schema Namespace="tradeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="tradeEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="prod_Poduct" EntityType="tradeModel.prod_Poduct" />
-          <EntitySet Name="prod_Category" EntityType="tradeModel.prod_Category" />
-          <AssociationSet Name="prod_Poduct_fk" Association="tradeModel.prod_Poduct_fk">
-            <End Role="prod_Category" EntitySet="prod_Category" />
-            <End Role="prod_Poduct" EntitySet="prod_Poduct" />
+          <EntitySet Name="prod_category" EntityType="tradeModel.prod_category" />
+          <EntitySet Name="prod_poduct" EntityType="tradeModel.prod_poduct" />
+          <AssociationSet Name="prod_poduct_fk" Association="tradeModel.prod_poduct_fk">
+            <End Role="prod_category" EntitySet="prod_category" />
+            <End Role="prod_poduct" EntitySet="prod_poduct" />
+          </AssociationSet>
+          <AssociationSet Name="prod_category_fk" Association="tradeModel.prod_category_fk">
+            <End Role="prod_category" EntitySet="prod_category" />
+            <End Role="prod_category1" EntitySet="prod_category" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="prod_Poduct">
+        <EntityType Name="prod_category">
           <Key>
-            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="category_id" />
           </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="productName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="productCategoryId" Type="Int32" />
-          <NavigationProperty Name="prod_Category" Relationship="tradeModel.prod_Poduct_fk" FromRole="prod_Poduct" ToRole="prod_Category" />
+          <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paerent_category" Type="Int32" />
+          <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="prod_poduct" Relationship="tradeModel.prod_poduct_fk" FromRole="prod_category" ToRole="prod_poduct" />
+          <NavigationProperty Name="prod_category1" Relationship="tradeModel.prod_category_fk" FromRole="prod_category" ToRole="prod_category1" />
+          <NavigationProperty Name="prod_category2" Relationship="tradeModel.prod_category_fk" FromRole="prod_category1" ToRole="prod_category" />
         </EntityType>
-        <EntityType Name="prod_Category">
+        <EntityType Name="prod_poduct">
           <Key>
-            <PropertyRef Name="CategoryId" />
+            <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PaerentCategory" Type="Int32" />
-          <Property Name="categoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="prod_Poduct" Relationship="tradeModel.prod_Poduct_fk" FromRole="prod_Category" ToRole="prod_Poduct" />
+          <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="product_category_id" Type="Int32" />
+          <NavigationProperty Name="prod_category" Relationship="tradeModel.prod_poduct_fk" FromRole="prod_poduct" ToRole="prod_category" />
         </EntityType>
-        <Association Name="prod_Poduct_fk">
-          <End Type="tradeModel.prod_Category" Role="prod_Category" Multiplicity="0..1" />
-          <End Type="tradeModel.prod_Poduct" Role="prod_Poduct" Multiplicity="*" />
+        <Association Name="prod_poduct_fk">
+          <End Type="tradeModel.prod_category" Role="prod_category" Multiplicity="0..1" />
+          <End Type="tradeModel.prod_poduct" Role="prod_poduct" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="prod_Category">
-              <PropertyRef Name="CategoryId" />
+            <Principal Role="prod_category">
+              <PropertyRef Name="category_id" />
             </Principal>
-            <Dependent Role="prod_Poduct">
-              <PropertyRef Name="productCategoryId" />
+            <Dependent Role="prod_poduct">
+              <PropertyRef Name="product_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="prod_category_fk">
+          <End Type="tradeModel.prod_category" Role="prod_category" Multiplicity="0..1" />
+          <End Type="tradeModel.prod_category" Role="prod_category1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="prod_category">
+              <PropertyRef Name="category_id" />
+            </Principal>
+            <Dependent Role="prod_category1">
+              <PropertyRef Name="paerent_category" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -96,21 +129,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище wwwunifloragroup_tradeModelContainer" CdmEntityContainer="tradeEntities">
-          <EntitySetMapping Name="prod_Poduct">
-            <EntityTypeMapping TypeName="tradeModel.prod_Poduct">
-              <MappingFragment StoreEntitySet="prod_Poduct">
-                <ScalarProperty Name="productCategoryId" ColumnName="productCategoryId" />
-                <ScalarProperty Name="productName" ColumnName="productName" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <EntitySetMapping Name="prod_category">
+            <EntityTypeMapping TypeName="tradeModel.prod_category">
+              <MappingFragment StoreEntitySet="prod_category">
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="paerent_category" ColumnName="paerent_category" />
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="prod_Category">
-            <EntityTypeMapping TypeName="tradeModel.prod_Category">
-              <MappingFragment StoreEntitySet="prod_Category">
-                <ScalarProperty Name="categoryName" ColumnName="categoryName" />
-                <ScalarProperty Name="PaerentCategory" ColumnName="PaerentCategory" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <EntitySetMapping Name="prod_poduct">
+            <EntityTypeMapping TypeName="tradeModel.prod_poduct">
+              <MappingFragment StoreEntitySet="prod_poduct">
+                <ScalarProperty Name="product_category_id" ColumnName="product_category_id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -129,7 +162,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
       </DesignerInfoPropertySet>

@@ -25,7 +25,7 @@ namespace TradeFlowers.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<prod_Poduct> prod_Poduct { get; set; }
-        public virtual DbSet<prod_Category> prod_Category { get; set; }
+        public virtual DbSet<prod_category> prod_category { get; set; }
+        public virtual DbSet<prod_poduct> prod_poduct { get; set; }
     }
 }

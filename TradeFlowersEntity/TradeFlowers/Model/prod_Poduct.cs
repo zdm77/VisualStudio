@@ -12,12 +12,12 @@ namespace TradeFlowers.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class prod_Poduct
+    public partial class prod_poduct
     {
-        public int ProductId { get; set; }
-        public string productName { get; set; }
-        public Nullable<int> productCategoryId { get; set; }
+        public int product_id { get; set; }
+        public string product_name { get; set; }
+        public Nullable<int> product_category_id { get; set; }
     
-        public virtual prod_Category prod_Category { get; set; }
+        public virtual prod_category prod_category { get; set; }
     }
 }

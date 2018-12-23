@@ -12,19 +12,23 @@ namespace TradeFlowers.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class prod_Category
+    public partial class prod_category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public prod_Category()
+        public prod_category()
         {
-            this.prod_Poduct = new HashSet<prod_Poduct>();
+            this.prod_poduct = new HashSet<prod_poduct>();
+            this.prod_category1 = new HashSet<prod_category>();
         }
     
-        public int CategoryId { get; set; }
-        public Nullable<int> PaerentCategory { get; set; }
-        public string categoryName { get; set; }
+        public int category_id { get; set; }
+        public Nullable<int> paerent_category { get; set; }
+        public string category_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<prod_Poduct> prod_Poduct { get; set; }
+        public virtual ICollection<prod_poduct> prod_poduct { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<prod_category> prod_category1 { get; set; }
+        public virtual prod_category prod_category2 { get; set; }
     }
 }

@@ -5,8 +5,18 @@
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         Title="mui" IsTitleVisible="True"
         ContentSource="/Pages/Home.xaml">
-
     <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Справочники">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="" Source="/Pages/Dictonary/DictonaryView.xaml" />
+                <mui:Link DisplayName="Номенклатура" Source="/Pages/Dictonary/ProductsView.xaml" />
+                <mui:Link DisplayName="Поставщики" Source="/Pages/Dictonary/1.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+  
+
+
+    
         <mui:LinkGroup DisplayName="welcome">
             <mui:LinkGroup.Links>   
                 <mui:Link DisplayName="home" Source="/Pages/Home.xaml" />

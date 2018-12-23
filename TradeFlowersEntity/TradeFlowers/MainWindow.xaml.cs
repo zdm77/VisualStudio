@@ -28,17 +28,36 @@ namespace TradeFlowers
             InitializeComponent();
             using (tradeEntities db = new tradeEntities())
             {
-                var q = db.prod_Category;
-                
+                //  var q = db.prod_category;
+
+                /*запрос в стиле */
                 //var q = from t in db.категории
                 //        where t.name_category.ToUpper().StartsWith("В")
                 //        orderby t.name_category
                 //        select t;
 
+                /*Можно совмещать с обычным SQL*/
+                //var comps = db.Database.SqlQuery<prod_Category>("SELECT * FROM ");
 
-                foreach (prod_Category t in q)
+                // вставка
+                // int numberOfRowInserted = db.Database.ExecuteSqlCommand("INSERT INTO prod_category (category_name) VALUES ('Тест')");
+                //prod_poduct p = new prod_poduct();
+                //p.product_name = "Тест";
+                //p.product_category_id = 6;
+                //db.prod_poduct.Add(p);
+                //db.SaveChanges();
+                var q = db.prod_category.Join(
+                    db.prod_poduct,
+                    c=>c.category_id,
+                    p=>p.product_category_id,
+                    (p,c)=> new
+                    {
+                        Name=p.category_name
+                    });
+
+                foreach (var t in q)
                 {
-                    Console.WriteLine(t.categoryName);
+                    Console.WriteLine(t.Name);
                 }
 
             }
